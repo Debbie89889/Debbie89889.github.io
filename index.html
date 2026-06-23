@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- 瀏覽器分頁標題 -->
+<title>李昀珊 Debbie · 作品集</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg:        #FBFBFD;
+    --surface:   #FFFFFF;
+    --ink:       #16181D;
+    --ink-soft:  #5A6072;
+    --line:      #E6E8EE;
+    --accent:    #0E7C7B;
+    --accent-ink:#0A5C5B;
+    --accent-bg: #E5F2F1;
+
+    --display: 'Space Grotesk', system-ui, sans-serif;
+    --body:    'Inter', system-ui, sans-serif;
+    --mono:    'JetBrains Mono', ui-monospace, monospace;
+
+    --maxw: 980px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 56px 56px;
+    background-position: -1px -1px;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    backdrop-filter: blur(8px);
+    background: rgba(251,251,253,0.82);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; }
+  .brand .dot { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { font-size: 14px; font-weight: 500; text-decoration: none; color: var(--ink-soft); transition: color .15s; }
+  .nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); }
+
+  .hero { padding: 96px 0 72px; }
+  .eyebrow { font-family: var(--mono); font-size: 13px; color: var(--accent-ink); letter-spacing: .02em; margin-bottom: 22px; }
+  .hero h1 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(38px, 6.5vw, 64px); line-height: 1.05;
+    letter-spacing: -0.02em; margin: 0 0 20px;
+  }
+  .hero h1 .hl { color: var(--accent); }
+  .hero .lede { font-size: clamp(17px, 2.2vw, 20px); color: var(--ink-soft); max-width: 600px; margin: 0 0 36px; }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 15px; font-weight: 600; padding: 11px 20px; border-radius: 10px;
+    text-decoration: none; transition: transform .12s, background .15s, border-color .15s;
+    border: 1px solid transparent;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover, .btn-primary:focus-visible { background: var(--accent-ink); }
+  .btn-ghost { background: var(--surface); border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover, .btn-ghost:focus-visible { border-color: var(--accent); color: var(--accent); }
+  .btn svg { width: 17px; height: 17px; }
+
+  section { padding: 28px 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 32px; }
+  .sec-head .tag { font-family: var(--mono); font-size: 13px; color: var(--accent-ink); }
+  .sec-head h2 { font-family: var(--display); font-size: clamp(24px, 3.5vw, 30px); font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+
+  .projects { display: grid; gap: 20px; }
+  @media (min-width: 720px) { .projects { grid-template-columns: 1fr 1fr; } }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px; display: flex; flex-direction: column;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px -16px rgba(14,124,123,0.35); border-color: var(--accent); }
+  .card .code { font-family: var(--mono); font-size: 12px; color: var(--accent-ink); margin-bottom: 14px; }
+  .card h3 { font-family: var(--display); font-size: 21px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .card p { color: var(--ink-soft); font-size: 15px; margin: 0 0 20px; flex: 1; }
+  .stack { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+  .pill { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); background: var(--accent-bg); border-radius: 999px; padding: 4px 11px; }
+  .card-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .card-actions .btn { padding: 9px 16px; font-size: 14px; }
+
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill { font-family: var(--mono); font-size: 13px; border: 1px solid var(--line); border-radius: 8px; padding: 7px 13px; background: var(--surface); }
+
+  footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 48px 0 60px; }
+  footer h2 { font-family: var(--display); font-size: clamp(24px, 4vw, 32px); font-weight: 600; margin: 0 0 18px; letter-spacing: -0.01em; }
+  footer .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .copyright { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); margin-top: 40px; }
+
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Debbie<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="#work">作品</a>
+      <a href="#skills">技能</a>
+      <a href="#contact">聯絡</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow reveal">// data scientist · ml × llm agent × business</p>
+
+      <h1 class="reveal">我是李昀珊，<br />用資料與 <span class="hl">AI</span> 做出可信賴的決策。</h1>
+
+      <p class="lede reveal">
+        資料科學家，擅長把機器學習模型與 LLM Agent 變成能落地、每個數字都可驗證的產品。
+        會計背景出身，對商業意義與資料正確性特別敏感。下面是我最近的兩個專案。
+      </p>
+
+      <div class="cta-row reveal">
+        <a class="btn btn-primary" href="https://github.com/Debbie89889" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.34.85 0 1.7.12 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+          GitHub
+        </a>
+        <!-- 在此修改：換成你的 Email -->
+        <a class="btn btn-ghost" href="mailto:deby308698@gmail.com">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="tag">01</span>
+        <h2>作品</h2>
+      </div>
+
+      <div class="projects">
+
+        <!-- ── 專案一：補貨決策 AI Copilot ──────────── -->
+        <article class="card reveal">
+          <span class="code">project_01 · llm agent</span>
+          <h3>單一 SKU 補貨決策 AI Copilot</h3>
+          <p>
+            把碩士研究的強化學習補貨模型產品化：使用者用自然語言查詢補貨決策，
+            而 LLM 只負責把數字翻成中文、絕不自己計算——每個數字都能在 trace 中追溯，
+            從零自建 router → extractor → tool → response 的 Agent 流程。
+          </p>
+          <div class="stack">
+            <span class="pill">Python</span>
+            <span class="pill">PyTorch · RL</span>
+            <span class="pill">LLM Agent</span>
+            <span class="pill">Streamlit</span>
+            <span class="pill">Docker</span>
+          </div>
+          <div class="card-actions">
+            <!-- 在此修改：上線後填入 Streamlit demo 網址；還沒上線可先刪掉這顆按鈕 -->
+            <a class="btn btn-primary" href="#" target="_blank" rel="noopener">查看 Demo</a>
+            <a class="btn btn-ghost" href="https://github.com/Debbie89889/single-sku-inventory-copilot" target="_blank" rel="noopener">原始碼</a>
+          </div>
+        </article>
+
+        <!-- ── 專案二：消費者智慧分析平台 ──────────── -->
+        <article class="card reveal">
+          <span class="code">project_02 · consumer intelligence</span>
+          <h3>消費者智慧分析平台</h3>
+          <p>
+            以 107 萬筆真實電商交易，端到端打造「客群分群 × CLV × Next Best Offer × 購買傾向預測」，
+            並產品化為 FastAPI + PostgreSQL + grounded LLM Copilot。
+            強調會驗證的機率方法與誠實的模型評估，不 overclaim。
+          </p>
+          <div class="stack">
+            <span class="pill">Python</span>
+            <span class="pill">scikit-learn</span>
+            <span class="pill">LightGBM</span>
+            <span class="pill">FastAPI</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">Docker</span>
+          </div>
+          <div class="card-actions">
+            <!-- 在此修改：上線後填入 Streamlit demo 網址；還沒上線可先刪掉這顆按鈕 -->
+            <a class="btn btn-primary" href="#" target="_blank" rel="noopener">查看 Demo</a>
+            <a class="btn btn-ghost" href="https://github.com/Debbie89889/consumer-intelligence" target="_blank" rel="noopener">原始碼</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="tag">02</span>
+        <h2>技能</h2>
+      </div>
+      <div class="skills-grid reveal">
+        <span class="skill">Python</span>
+        <span class="skill">SQL</span>
+        <span class="skill">scikit-learn</span>
+        <span class="skill">PyTorch</span>
+        <span class="skill">強化學習</span>
+        <span class="skill">LLM / AI Agent</span>
+        <span class="skill">Feature Engineering</span>
+        <span class="skill">FastAPI</span>
+        <span class="skill">Streamlit</span>
+        <span class="skill">Docker · CI</span>
+        <span class="skill">資料視覺化</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="reveal">想聊聊？</h2>
+    <div class="contact-links reveal">
+      <!-- 在此修改：聯絡連結 -->
+      <a class="btn btn-primary" href="mailto:你的信箱@example.com">寄信給我</a>
+      <a class="btn btn-ghost" href="https://github.com/Debbie89889" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="copyright">© 2026 李昀珊 Debbie · 用 HTML 手刻，部署於 GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
