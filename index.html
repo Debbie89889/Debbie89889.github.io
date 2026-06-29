@@ -149,11 +149,12 @@
 
   <div class="hero">
     <div class="wrap">
-      <p class="eyebrow reveal">// data scientist · ml × llm agent × business</p>
-      <h1 class="reveal">我是李昀珊，<br />用資料與 <span class="hl">AI</span> 做出可信賴的決策。</h1>
+      <p class="eyebrow reveal">Data Scientist · Machine Learning × LLM Agent</p>
+      <h1 class="reveal">我是李昀珊，<br />運用資料科學與 <span class="hl">AI</span> 解決實際的商業問題。</h1>
       <p class="lede reveal">
-        資料科學家，擅長把機器學習模型與 LLM Agent 變成能落地、每個數字都可驗證的產品。
-        會計背景出身，對商業意義與資料正確性特別敏感。下面是我最近的兩個專案與一路走來的歷程。
+        資料科學家，專長涵蓋機器學習建模與 LLM Agent 開發，擅長將模型轉化為
+        可部署、每個數字都能驗證的產品，並對商業意義與資料正確性有高度敏感。
+        以下是我近期的兩個專案與專業歷程。
       </p>
       <div class="cta-row reveal">
         <a class="btn btn-primary" href="https://github.com/Debbie89889" target="_blank" rel="noopener">
@@ -177,25 +178,63 @@
 
       <div class="projects">
 
-        <!-- 專案一 -->
+        <!-- 專案一：消費者智慧分析平台 -->
         <article class="card reveal">
           <span class="code">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-            project_01 · llm agent
+            project_01 · ml &amp; data product
+          </span>
+          <h3>消費者智慧分析平台</h3>
+          <p>
+            以一份 107 萬筆真實電商交易（5,852 位客戶、約 £17.1M 營收），獨立完成從客群分群、
+            顧客終身價值、購物籃關聯到購買傾向預測的完整建模，並把整套分析產品化為可部署的 API 服務。
+            主打資料科學建模的廣度，以及把分析變成產品的工程能力。
+          </p>
+          <div class="stats">
+            <div class="stat"><div class="num">107萬</div><div class="lab">筆真實交易</div></div>
+            <div class="stat"><div class="num">4 模型</div><div class="lab">端到端建模</div></div>
+            <div class="stat"><div class="num">12 端點</div><div class="lab">API 服務</div></div>
+          </div>
+          <ul class="highlights">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>RFM 加 K-means 雙軌分群互相驗證，鎖定 543 位高價值流失客的 win-back 名單</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>機率型 CLV 經 holdout 驗證（相關 0.848）、傾向預測採無洩漏時間切分加 SHAP，方法可信可複現</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>產品化為 12 端點 FastAPI 服務，91 pytest 加 CI、Render 一鍵部署；grounded LLM Copilot 只做中文敘述、不碰數字</li>
+          </ul>
+          <div class="stack">
+            <span class="pill">Python</span><span class="pill">scikit-learn</span>
+            <span class="pill">LightGBM</span><span class="pill">FastAPI</span>
+            <span class="pill">PostgreSQL</span><span class="pill">LangChain</span><span class="pill">Docker</span>
+          </div>
+          <div class="card-actions">
+            <!-- 在此修改：填入線上 Demo 網址 -->
+            <a class="btn btn-primary" href="https://consumer-intel-dashboard.onrender.com/" target="_blank" rel="noopener">查看 Demo</a>
+            <!-- 在此修改：填入 API 文件網址（通常是 Demo 網址後面加 /docs） -->
+            <a class="btn btn-ghost" href="https://consumer-intel-api.onrender.com/docs#/" target="_blank" rel="noopener">API 文件</a>
+            <a class="btn btn-ghost" href="https://github.com/Debbie89889/consumer-intelligence" target="_blank" rel="noopener">原始碼</a>
+          </div>
+        </article>
+
+        <!-- 專案二：補貨決策 AI Copilot -->
+        <article class="card reveal">
+          <span class="code">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+            project_02 · llm agent &amp; rl
           </span>
           <h3>單一 SKU 補貨決策 AI Copilot</h3>
           <p>
-            把碩士研究的強化學習補貨模型產品化：使用者用自然語言查詢補貨決策，
-            LLM 只負責把數字翻成中文、絕不自己計算——每個數字都能在 trace 中追溯。
+            從零自建一套 LLM Agent，以 router、extractor、tool、response 四階段編排，
+            讓使用者用自然語言操作背後的強化學習補貨模型。主打 Agent 系統設計，
+            以及把 LLM 嚴格約束在敘述層，確保每個數字都來自模型計算、而非被生成出來。
           </p>
           <div class="stats">
+            <div class="stat"><div class="num">4 階段</div><div class="lab">Agent 編排</div></div>
+            <div class="stat"><div class="num" style="font-size:clamp(16px,3vw,19px);white-space:nowrap;">數字可追溯</div><div class="lab">LLM 只敘述不計算</div></div>
             <div class="stat"><div class="num">68→79%</div><div class="lab">服務水準提升</div></div>
-            <div class="stat"><div class="num">71</div><div class="lab">pytest 單元測試</div></div>
-            <div class="stat"><div class="num">0</div><div class="lab">數字幻覺</div></div>
           </div>
           <ul class="highlights">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>從零自建 router → extractor → tool → response 的 Agent 流程</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>固定五段式決策說明，非技術使用者也能讀懂</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>router → extractor → tool → response 的完整 Agent 編排，provider-agnostic 可切換不同 LLM</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>LLM 只翻譯不計算，每個數字都能在 trace 中追溯，輸出固定五段式決策說明</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>以深度強化學習訓練補貨策略，表現勝過傳統 (s,S) 存貨基準</li>
           </ul>
           <div class="stack">
             <span class="pill">Python</span><span class="pill">PyTorch · RL</span>
@@ -204,39 +243,7 @@
           <div class="card-actions">
             <!-- 在此修改：上線後填入 Streamlit demo 網址；還沒上線可先刪掉這顆按鈕 -->
             <a class="btn btn-primary" href="#" target="_blank" rel="noopener">查看 Demo</a>
-            <a class="btn btn-ghost" href="https://github.com/Debbie89889/single-sku-inventory-copilot" target="_blank" rel="noopener">原始碼</a>
-          </div>
-        </article>
-
-        <!-- 專案二 -->
-        <article class="card reveal">
-          <span class="code">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-            project_02 · consumer intelligence
-          </span>
-          <h3>消費者智慧分析平台</h3>
-          <p>
-            以 107 萬筆真實電商交易，端到端打造「客群分群 × CLV × Next Best Offer × 購買傾向預測」，
-            並產品化為 FastAPI + PostgreSQL + grounded LLM Copilot。強調會驗證的機率方法，不 overclaim。
-          </p>
-          <div class="stats">
-            <div class="stat"><div class="num">65.5%</div><div class="lab">營收來自前段客群</div></div>
-            <div class="stat"><div class="num">0.848</div><div class="lab">CLV 驗證相關係數</div></div>
-            <div class="stat"><div class="num">0.80</div><div class="lab">傾向預測 ROC-AUC</div></div>
-          </div>
-          <ul class="highlights">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>RFM + K-means 雙軌分群互相驗證，產出 win-back 名單</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>無洩漏時間切分 + SHAP 可解釋，分數可直接用於行銷</li>
-          </ul>
-          <div class="stack">
-            <span class="pill">Python</span><span class="pill">scikit-learn</span>
-            <span class="pill">LightGBM</span><span class="pill">FastAPI</span>
-            <span class="pill">PostgreSQL</span><span class="pill">Docker</span>
-          </div>
-          <div class="card-actions">
-            <!-- 在此修改：上線後填入 Streamlit demo 網址；還沒上線可先刪掉這顆按鈕 -->
-            <a class="btn btn-primary" href="#" target="_blank" rel="noopener">查看 Demo</a>
-            <a class="btn btn-ghost" href="https://github.com/Debbie89889/consumer-intelligence" target="_blank" rel="noopener">原始碼</a>
+            <a class="btn btn-ghost" href="https://single-sku-inventory-copilot-ufa8jyi62krq5nb9dpd9mv.streamlit.app/" target="_blank" rel="noopener">原始碼</a>
           </div>
         </article>
 
@@ -268,15 +275,7 @@
           <div class="tl-year">2023/9 – 2025/12</div>
           <p class="tl-role">資訊與決策科學研究所（碩士）</p>
           <p class="tl-org">台北商業大學</p>
-          <p class="tl-desc">碩士論文以深度強化學習研究供應鏈存貨管理；系統性比較多種機器學習模型、建立一致評估指標，並把研究型程式重構、產品化——轉往資料科學的關鍵轉折點。</p>
-        </div>
-
-        <div class="tl-item reveal">
-          <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg></div>
-          <div class="tl-year">2020/7 – 2022/7</div>
-          <p class="tl-role">研究員（稅務會計）</p>
-          <p class="tl-org">勤業眾信聯合會計師事務所</p>
-          <p class="tl-desc">負責稅務申報與會計處理，以 Excel 對大量財務資料勾稽比對與正確性驗證——一切「從資料正確性與商業意義出發」的思考習慣，都從這裡開始。</p>
+          <p class="tl-desc">碩士論文以深度強化學習研究供應鏈存貨管理；系統性比較多種機器學習模型、建立一致評估指標，並把研究型程式重構、產品化，是轉往資料科學的關鍵轉折點。</p>
         </div>
 
       </div>
@@ -306,13 +305,13 @@
 
 <footer id="contact">
   <div class="wrap">
-    <h2 class="reveal">想聊聊？</h2>
+    <h2 class="reveal">歡迎與我聯繫</h2>
     <div class="contact-links reveal">
       <!-- 在此修改：聯絡信箱 -->
       <a class="btn btn-primary" href="mailto:debbie89889@gmail.com">寄信給我</a>
       <a class="btn btn-ghost" href="https://github.com/Debbie89889" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <p class="copyright">© 2026 李昀珊 Debbie ·</p>
+    <p class="copyright">© 2026 李昀珊 Debbie · </p>
   </div>
 </footer>
 
