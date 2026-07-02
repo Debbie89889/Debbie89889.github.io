@@ -67,9 +67,9 @@
   .sec-head .ic { width:22px; height:22px; color:var(--accent); flex:none; }
 
   /* 專案 */
-  .projects { display:grid; gap:20px; }
-  @media (min-width:720px){ .projects { grid-template-columns:1fr 1fr; } }
+  .projects { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
   .card {
+    flex:0 1 calc(50% - 10px); min-width:280px;
     background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:28px;
     display:flex; flex-direction:column; transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
   }
@@ -149,12 +149,12 @@
 
   <div class="hero">
     <div class="wrap">
-      <p class="eyebrow reveal">Data Scientist · Machine Learning × LLM Agent</p>
-      <h1 class="reveal">我是李昀珊，<br />運用資料科學與 <span class="hl">AI</span> 解決實際的商業問題。</h1>
+      <p class="eyebrow reveal">Data Scientist · Semantic Search × Machine Learning × LLM Agent</p>
+      <h1 class="reveal">我是李昀珊，<br />運用機器學習與 <span class="hl">AI</span> 解決實際的商業問題。</h1>
       <p class="lede reveal">
-        資料科學家，專長涵蓋機器學習建模與 LLM Agent 開發，擅長將模型轉化為
+        資料科學家，近期專案橫跨語意搜尋、機器學習建模與 LLM Agent，擅長將模型轉化為
         可部署、每個數字都能驗證的產品，並對商業意義與資料正確性有高度敏感。
-        以下是我近期的兩個專案與專業歷程。
+        以下是我的近期專案與專業歷程。
       </p>
       <div class="cta-row reveal">
         <a class="btn btn-primary" href="https://github.com/Debbie89889" target="_blank" rel="noopener">
@@ -178,11 +178,44 @@
 
       <div class="projects">
 
-        <!-- 專案一：消費者智慧分析平台 -->
+        <!-- 專案一：電商語意商品搜尋 -->
         <article class="card reveal">
           <span class="code">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-            project_01 · ml &amp; data product
+            project_01 · semantic search &amp; ir
+          </span>
+          <h3>電商語意商品搜尋</h3>
+          <p>
+            用 Amazon ESCI 電商資料微調 bi-encoder 檢索器加 cross-encoder reranker，
+            把使用者的自然語言查詢對應到正確商品，即使用詞完全不同。採業界標準的兩段式
+            檢索（先召回再精排），核心在嚴謹的檢索品質評估。
+          </p>
+          <div class="stats">
+            <div class="stat"><div class="num">+29%</div><div class="lab">搜尋準確度提升</div></div>
+            <div class="stat"><div class="num">即時</div><div class="lab">52 ms 內回應</div></div>
+            <div class="stat"><div class="num">2 階段</div><div class="lab">檢索加精排</div></div>
+          </div>
+          <ul class="highlights">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>bi-encoder 對比學習微調（MNRL）加 FAISS 向量索引，召回勝過現成模型與 BM25</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>兩段式 retrieve → rerank，cross-encoder 只精排前 100 名，品質提升而延遲僅增約 15 ms</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>artifact pipeline 加薄前端：訓練、建索引、評估離線完成，FastAPI 與 Streamlit 只讀取不重算</li>
+          </ul>
+          <div class="stack">
+            <span class="pill">Python</span><span class="pill">sentence-transformers</span>
+            <span class="pill">FAISS</span><span class="pill">BM25</span>
+            <span class="pill">FastAPI</span><span class="pill">Streamlit</span><span class="pill">Docker</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="https://huggingface.co/spaces/Debbie89889/semantic-product-search" target="_blank" rel="noopener">查看 Demo</a>
+            <a class="btn btn-ghost" href="https://github.com/Debbie89889/semantic-product-search" target="_blank" rel="noopener">原始碼</a>
+          </div>
+        </article>
+
+        <!-- 專案二：消費者智慧分析平台 -->
+        <article class="card reveal">
+          <span class="code">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+            project_02 · ml &amp; data product
           </span>
           <h3>消費者智慧分析平台</h3>
           <p>
@@ -214,11 +247,11 @@
           </div>
         </article>
 
-        <!-- 專案二：補貨決策 AI Copilot -->
+        <!-- 專案三：補貨決策 AI Copilot -->
         <article class="card reveal">
           <span class="code">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-            project_02 · llm agent &amp; rl
+            project_03 · llm agent &amp; rl
           </span>
           <h3>單一 SKU 補貨決策 AI Copilot</h3>
           <p>
